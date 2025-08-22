@@ -1,2 +1,26 @@
 (executable
- (public_name foo))
+ (public_name foo)
+ (libraries
+   core
+   core_unix.command_unix
+   core_unix.filename_unix
+   http-lwt-client
+   markup
+   re
+   uri
+   uucp
+   yojson
+ )
+ (preprocess
+  (pps
+    ppx_yojson_conv
+    ppx_sexp_value
+    ppx_sexp_conv
+    ppx_compare
+    ppx_hash
+    ppx_pipebang
+    ppx_let
+    ppx_bin_prot
+    ppx_partial
+    lwt_ppx
+)))
