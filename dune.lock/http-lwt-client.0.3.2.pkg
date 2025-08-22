@@ -1,0 +1,33 @@
+(version 0.3.2)
+
+(build
+ (all_platforms
+  ((action
+    (progn
+     (when %{pkg-self:dev} (run dune subst))
+     (run dune build -p %{pkg-self:name} -j %{jobs}))))))
+
+(depends
+ (all_platforms
+  (ocaml
+   dune
+   cmdliner
+   logs
+   lwt
+   base64
+   faraday-lwt-unix
+   httpaf
+   tls
+   tls-lwt
+   ca-certs
+   fmt
+   bos
+   happy-eyeballs-lwt
+   h2)))
+
+(source
+ (fetch
+  (url
+   https://github.com/robur-coop/http-lwt-client/releases/download/v0.3.2/http-lwt-client-0.3.2.tbz)
+  (checksum
+   sha256=488bc9d06135d404126a6090d8d58811bf3d7f0d119277d511e0a205cf6db5a5)))
